@@ -26,7 +26,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:animated];//No 为显示Navigationbar Yes 为隐藏
 }
 
 - (void)didReceiveMemoryWarning {

@@ -17,9 +17,11 @@
 
 @implementation ZHRootViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
+    {
         self.navigationController.interactivePopGestureRecognizer.enabled = YES;      // 手势有效设置为YES  无效为NO
         self.navigationController.interactivePopGestureRecognizer.delegate = self;    // 手势的代理设置为self
     }
@@ -38,7 +40,14 @@
     
 }
 
-
+-(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    if (self.navigationController.viewControllers.count == 1) {
+        return NO;
+    }else{
+        return YES;
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

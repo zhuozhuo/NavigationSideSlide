@@ -11,8 +11,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZHRootTableViewController : UITableViewController<UIGestureRecognizerDelegate,UINavigationControllerDelegate
->
+@interface ZHRootTableViewController : UITableViewController<UIGestureRecognizerDelegate>
 
 
 @end

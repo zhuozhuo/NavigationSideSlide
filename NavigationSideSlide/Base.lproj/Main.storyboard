@@ -157,11 +157,11 @@
             </objects>
             <point key="canvasLocation" x="1524" y="209"/>
         </scene>
-        <!--View Controller1-->
+        <!--View Controller2-->
         <scene sceneID="cyd-0v-2I5">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P7d-lZ-HOL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="4Zi-XI-G3J" customClass="ZHViewController1" sceneMemberID="viewController">
+                <viewController id="4Zi-XI-G3J" customClass="ZHViewController2" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AQv-bd-a4K"/>
                         <viewControllerLayoutGuide type="bottom" id="2Ms-XT-i0L"/>

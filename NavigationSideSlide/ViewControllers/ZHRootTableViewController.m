@@ -20,14 +20,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"%@",self.navigationController.interactivePopGestureRecognizer);
+    
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
         self.navigationController.interactivePopGestureRecognizer.enabled = YES;      // 手势有效设置为YES  无效为NO
         self.navigationController.interactivePopGestureRecognizer.delegate = self;    // 手势的代理设置为self
     }
     
-    NSArray *gestureArray = self.navigationController.view.gestureRecognizers;
+    NSArray *gestureArray = self.navigationController.view.gestureRecognizers;//获取所有的手势
     
-    //当是侧滑手势的时候设置scrollview需要此手势失效才生效即可
+    //当是侧滑手势的时候设置panGestureRecognizer需要UIScreenEdgePanGestureRecognizer失效才生效即可
     for (UIGestureRecognizer *gesture in gestureArray) {
         if ([gesture isKindOfClass:[UIScreenEdgePanGestureRecognizer class]]) {
             [self.tableView.panGestureRecognizer requireGestureRecognizerToFail:gesture];
@@ -55,13 +57,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

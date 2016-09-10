@@ -11,8 +11,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZHRootViewController : UIViewController<UIGestureRecognizerDelegate,UINavigationControllerDelegate
->
+@interface ZHRootViewController : UIViewController<UIGestureRecognizerDelegate>
 
 
 @end
