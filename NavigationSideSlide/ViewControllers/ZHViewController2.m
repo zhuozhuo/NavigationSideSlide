@@ -12,7 +12,11 @@
 
 #import "ZHViewController2.h"
 
-@interface ZHViewController2 ()
+@interface ZHViewController2 (){
+    UIScrollView *showScrollView;
+    
+}
+
 
 @end
 
@@ -22,6 +26,31 @@
 #pragma mark - View life
 - (void)viewDidLoad {
     [super viewDidLoad];
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    CGFloat height = [UIScreen mainScreen].bounds.size.height;
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    showScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, width, height)];
+    showScrollView.pagingEnabled = YES;
+    [self.view insertSubview:showScrollView atIndex:0];
+    for (NSInteger i = 0; i<4; i++) {
+        UIView *view = [[UIView alloc]init];
+        if (i%2 == 0) {
+            view.backgroundColor = [UIColor orangeColor];
+        }else{
+            view.backgroundColor = [UIColor blueColor];
+        }
+        view.frame = CGRectMake(width * i, 0,  width, height);
+        [showScrollView addSubview:view];
+    }
+    showScrollView.contentSize = CGSizeMake(width * 4, height);
+    NSArray *gestureArray = self.navigationController.view.gestureRecognizers;
+    //当是侧滑手势的时候设置scrollview需要此手势失效才生效即可
+    for (UIGestureRecognizer *gesture in gestureArray) {
+        if ([gesture isKindOfClass:[UIScreenEdgePanGestureRecognizer class]]) {
+            [showScrollView.panGestureRecognizer requireGestureRecognizerToFail:gesture];
+        }
+    }
+
     // Do any additional setup after loading the view.
 }
 
